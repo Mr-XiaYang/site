@@ -18,6 +18,4 @@ function Home() {
   )
 }
 
-Home.Layout = 'test'
-
 export default Home;
