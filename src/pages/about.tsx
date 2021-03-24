@@ -17,7 +17,7 @@ class About extends React.PureComponent<Props> {
     return (
       <React.Fragment>
         <Head>
-          <title>夏阳BLOG</title>
+          <title>关于 | 夏阳BLOG</title>
         </Head>
         <Box>
           <ul>

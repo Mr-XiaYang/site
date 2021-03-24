@@ -18,7 +18,7 @@ class HomePage extends React.PureComponent {
           </Toolbar>
         </AppBar>
         <Box>
-
+          test
         </Box>
       </Box>
     )
