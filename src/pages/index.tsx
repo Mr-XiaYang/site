@@ -1,4 +1,4 @@
-import {IconButton, Toolbar} from "@material-ui/core";
+import {IconButton, Paper, Toolbar} from "@material-ui/core";
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -17,8 +17,10 @@ class HomePage extends React.PureComponent {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Box>
-          test
+        <Box m={1}>
+          <Paper>
+            paper
+          </Paper>
         </Box>
       </Box>
     )
