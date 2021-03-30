@@ -22,9 +22,9 @@ A new document is now available at `http://localhost:3000/docs/hello`.
 
 ## Add your document to the sidebar {#add-your-document-to-the-sidebar}
 
-Add `hello` to the `sidebars.js` file:
+Add `hello` to the `defaultSidebars.js` file:
 
-```diff title="sidebars.js"
+```diff title="defaultSidebars.js"
 module.exports = {
   docs: [
     {
