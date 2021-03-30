@@ -48,6 +48,7 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} 夏阳的个人站 ｜ 鲁ICP备20012782号`,
     },
+    hideableSidebar: true
   },
 
   presets: [
