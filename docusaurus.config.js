@@ -34,7 +34,6 @@ module.exports = {
       links: [{
         title: '文档翻译',
         items: [
-          {label: 'docs', to: 'docs'},
           {label: '《500 Lines or Less》', to: '500_Lines_or_Less'},
         ]
       }, {
