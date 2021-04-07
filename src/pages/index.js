@@ -66,14 +66,7 @@ export default function Home() {
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/')}>
-              Get Started
-            </Link>
+            <img src="https://ghchart.rshah.org/25c2a0/standout-jjc" alt="standout-jjc Github chart" />
           </div>
         </div>
       </header>

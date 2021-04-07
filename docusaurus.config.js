@@ -42,10 +42,9 @@ module.exports = {
           {label: 'Blog', to: 'blog'},
           {label: 'GitHub', href: 'https://github.com/standout-jjc/xiayang-site'},
           {label: 'Git个人镜像', href: 'https://git.xiayang.space'},
-        ],
-      },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} 夏阳的个人站 ｜ 鲁ICP备20012782号`,
+          ]
+        }],
+      copyright: `Copyright © ${new Date().getFullYear()} 夏阳的个人站｜鲁ICP备20012782号`,
     },
     hideableSidebar: true
   },
