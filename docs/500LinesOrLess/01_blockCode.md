@@ -38,3 +38,8 @@ Block-based languages have a long history, with some of the prominent ones being
 本章代码基于开源项目 [WaterBear](http://waterbearlang.com/)，这不是一门语言，而是一种基于块的语法包装的现有语言的工具。这种包装器的优势包括上面提到的那些：消除语法错误，直观的显示可用组件，轻松本地化。另外，有时可视化代码有时更容易阅读和调试， 并且程序块可以使用之前预先定义的子程序块。（我们甚至可以更近一步，在程序块上添加图标结合或替代文字名称，以帮助那些学前儿童编程，但是我们在这个例子中不会考虑。）
 
 The code in this chapter is loosely based on the open-source project [WaterBear] (http://waterbearlang.com/), which is not a language, but a tool for wrapping existing languages with a block-based syntax. The advantages of such a wrapper include the ones noted above: eliminating syntax errors, visual display of available components, ease of localization. Additionally, visual code can sometimes be easier to read and debug, and blocks can be used by pre-typing children. (We could even go further and put icons on the blocks, either in conjunction with the text names or instead of them, to allow pre-literate children to write programs, but we don't go that far in this example.)
+
+
+该语言选择的海龟图形（turtle graphics）最早可以追溯到Logo语言，这是为教导孩子们学习编程专门设计的。多数块编程语言都内置了海龟图形（turtle graphics），并且它足够小能够用于这样一个严格约束的项目中。
+
+The choice of turtle graphics for this language goes back to the Logo language, Which was created specifically to teach programming to children. Several of the block-based languages above include turtle graphics, and it is a small enough domain to be able to capture in a tightly constrained project such as this.
