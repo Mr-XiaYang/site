@@ -6,7 +6,7 @@ title: "BlockCode: 可视化编程工具"
 ### [Dethe Elza](https://twitter.com/dethe)
 
 
-[Dethe](https://twitter.com/dethe) 是一名极客父亲，具有审美趣味的程序员，导师以及[ WaterBear 可视化编程工具](http://waterbearlang.com/) 的作者。他与人合办温哥华制作教育沙龙，想要折纸兔子机器人火遍全世界。
+[Dethe](https://twitter.com/dethe) 是一名极客父亲，具有审美趣味的程序员，导师以及[ WaterBear 可视化编程工具](http://waterbearlang.com/) 的作者。他与人合办温哥华制作教育沙龙，想要兔子折纸机器人火遍全世界。
 
 [Dethe] (https://twitter.com/dethe) is a geek dad, aesthetic programmer, mentor, and creator of the [WaterBear] (http://waterbearlang.com/) visual programming tool. He co-hosts the Vancouver Make Education Salons and wants to fill the world with robotic origami rabbits.
 
@@ -43,3 +43,19 @@ The code in this chapter is loosely based on the open-source project [WaterBear]
 该语言选择的海龟图形（turtle graphics）最早可以追溯到Logo语言，这是为教导孩子们学习编程专门设计的。多数块编程语言都内置了海龟图形（turtle graphics），并且它足够小能够用于这样一个严格约束的项目中。
 
 The choice of turtle graphics for this language goes back to the Logo language, Which was created specifically to teach programming to children. Several of the block-based languages above include turtle graphics, and it is a small enough domain to be able to capture in a tightly constrained project such as this.
+
+如果你想要了解基于块的编程语言是什么样的，你可以从作者的[Github仓库](https://dethe.github.io/500lines/blockcode/)仓库中试用本章构建的程序。
+
+If you would like to get a feel for what a block-based-language is like, you can experiment with the program that is built in this chapter from author's [Github repository](https://dethe.github.io/500lines/blockcode/).
+
+
+### 目标和结构
+Goals and Structure
+
+
+我想要这段代码完成这几件事。首先也是最重要的，我要为海龟图形（turtle graphics）实现一个块语言，你可以通过简单的拖放块编写绘制图像的代码，尽可能的使用HTML、CSS和JavaScript的简单结构。其次，但仍然很重要的是， 我想要展示这个块语言怎样作为框架服务其他语言而不仅仅是我们的小海龟语言（turtle language）。
+
+I want to accomplish a couple of things with this code. First and foremost, I want to implement a block language of turtle graphics, with which you can write code to create images through simple dragging-and-dropping of blocks, using as simple a structure of HTML, CSS, and JavaScript as possible. Second, but still important, I want to show how the blocks themselves can serve as a framework for other languages besides our mini turtle language.
+
+
+To do this, We encapsulate everything that is specific to the turtle language into one file (turtle.js) that we can easily swap with another file. Nothing else should be specific to the turtle language; the rest should just be about handling the blocks (blocks.js and menu.js) or be generally useful web utilities (util.js, drag.js, file.js). That is the goal, although to maintain  the small size of the project, some of those utilities are less general-purpose and more specific to their use with the blocks.
