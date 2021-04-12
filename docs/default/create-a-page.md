@@ -4,7 +4,7 @@ title: Create a Page
 
 Any React or Markdown file created under `src/pages` directory is converted into a website page:
 
-- `src/pages/index.js` -> `localhost:3000/`
+- `src/pages/index.tsx` -> `localhost:3000/`
 - `src/pages/foo.md` -> `localhost:3000/foo`
 - `src/pages/foo/bar.js` -> `localhost:3000/foo/bar`
 

@@ -7,12 +7,15 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import { useThemeConfig } from '@docusaurus/theme-common';
+import {ThemeConfig, FooterLinkItem} from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import ThemedImage from '@theme/ThemedImage';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-function FooterLink({ to, href, label, prependBaseUrlToHref, ...props }) {
+function FooterLink(
+  {to, href, label, prependBaseUrlToHref, ...props}: FooterLinkItem & { prependBaseUrlToHref?: boolean }
+) {
   const toUrl = useBaseUrl(to);
   const normalizedHref = useBaseUrl(href, {
     forcePrependBaseUrl: true,
@@ -33,18 +36,16 @@ function FooterLink({ to, href, label, prependBaseUrlToHref, ...props }) {
   );
 }
 
-const FooterLogo = ({ sources, alt }) => (
-  <ThemedImage className="footer__logo" alt={alt} sources={sources} />
+const FooterLogo = ({sources, alt}) => (
+  <ThemedImage className="footer__logo" alt={alt} sources={sources}/>
 );
 
 function Footer() {
-  const { footer } = useThemeConfig();
-  const { links = [], logo = {} } = footer || {};
-  const sources = {
-    light: useBaseUrl(logo.src),
-    dark: useBaseUrl(logo.srcDark || logo.src),
-  };
+  const {siteConfig} = useDocusaurusContext();
+  const {footer} = siteConfig.themeConfig as ThemeConfig;
 
+  const {links = [], logo = {}, copyright} = {...footer, ...siteConfig.customFields.footer} as ThemeConfig['footer'];
+  const sources = {light: useBaseUrl(logo.src), dark: useBaseUrl(logo.srcDark || logo.src)};
   if (!footer) {
     return null;
   }
@@ -63,8 +64,8 @@ function Footer() {
                   <h4 className="footer__title">{linkItem.title}</h4>
                 ) : null}
                 {linkItem.items != null &&
-                  Array.isArray(linkItem.items) &&
-                  linkItem.items.length > 0 ? (
+                Array.isArray(linkItem.items) &&
+                linkItem.items.length > 0 ? (
                   <ul className="footer__items">
                     {linkItem.items.map((item, key) =>
                       item.html ? (
@@ -94,16 +95,14 @@ function Footer() {
               <div className="margin-bottom--sm">
                 {logo.href ? (
                   <Link href={logo.href} className={styles.footerLogoLink}>
-                    <FooterLogo alt={logo.alt} sources={sources} />
+                    <FooterLogo alt={logo.alt} sources={sources}/>
                   </Link>
                 ) : (
-                  <FooterLogo alt={logo.alt} sources={sources} />
+                  <FooterLogo alt={logo.alt} sources={sources}/>
                 )}
               </div>
             )}
-            <div className="footer__copyright">
-              Copyright © {new Date().getFullYear()} 夏阳的个人网站 ｜ 鲁ICP备20012782号
-            </div>
+            <div className="footer__copyright" dangerouslySetInnerHTML={{__html: copyright}}/>
           </div>
         )}
       </div>

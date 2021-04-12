@@ -1,5 +1,14 @@
 const path = require('path');
 
+const customFields = {
+  navbar: {
+    title: '夏阳',
+  },
+  footer: {
+    copyright: `Copyright © ${new Date().getFullYear()} 夏阳的个人站｜鲁ICP备20012782号`
+  }
+}
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: '夏阳',
@@ -15,10 +24,10 @@ module.exports = {
 
   organizationName: 'standout-jjc', // Usually your GitHub org/user name.
   projectName: 'xiayang-site', // Usually your repo name.
-
+  customFields: customFields,
   themeConfig: {
     navbar: {
-      title: '夏阳',
+      title: customFields.navbar.title,
       logo: {
         alt: 'XiaYang Logo',
         src: 'img/logo.svg',
@@ -44,7 +53,7 @@ module.exports = {
           {label: 'Git个人镜像', href: 'https://git.xiayang.space'},
           ]
         }],
-      copyright: `Copyright © ${new Date().getFullYear()} 夏阳的个人站｜鲁ICP备20012782号`,
+      copyright: customFields.footer.copyright,
     },
     hideableSidebar: true
   },
@@ -66,7 +75,6 @@ module.exports = {
       },
     ],
   ],
-
   plugins: [
     ['@docusaurus/plugin-content-docs', {
       path: path.resolve('./docs', 'default'),
