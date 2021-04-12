@@ -53,9 +53,11 @@ If you would like to get a feel for what a block-based-language is like, you can
 Goals and Structure
 
 
-我想要这段代码完成这几件事。首先也是最重要的，我要为海龟图形（turtle graphics）实现一个块语言，你可以通过简单的拖放块编写绘制图像的代码，尽可能的使用HTML、CSS和JavaScript的简单结构。其次，但仍然很重要的是， 我想要展示这个块语言怎样作为框架服务其他语言而不仅仅是我们的小海龟语言（turtle language）。
+我想要这段代码完成这几件事。首先也是最重要的，我要为海龟图形（turtle graphics）实现一个块语言，你可以通过简单的拖放块编写绘制图像的代码，尽可能的使用HTML、CSS和JavaScript的简单结构。其次，但仍然很重要的是， 我想要展示这个块语言怎样作为框架服务其他语言而不仅仅是我们的Turtle语言。
 
 I want to accomplish a couple of things with this code. First and foremost, I want to implement a block language of turtle graphics, with which you can write code to create images through simple dragging-and-dropping of blocks, using as simple a structure of HTML, CSS, and JavaScript as possible. Second, but still important, I want to show how the blocks themselves can serve as a framework for other languages besides our mini turtle language.
 
 
-To do this, We encapsulate everything that is specific to the turtle language into one file (turtle.js) that we can easily swap with another file. Nothing else should be specific to the turtle language; the rest should just be about handling the blocks (blocks.js and menu.js) or be generally useful web utilities (util.js, drag.js, file.js). That is the goal, although to maintain  the small size of the project, some of those utilities are less general-purpose and more specific to their use with the blocks.
+要做到这一点，我们将turtle语言相关的内容封装到一个文件（turtle.js），这样可以使我们很容易的替换成另一个文件。其他的都不应该是turtle语言特有的。剩下的应该是用于处理Block(blocks.js, menu.js)和常用的Web实用工具（util.js, drag.js, file.js）。这就是我们的目标，虽然为了维持项目的精简，其中一些实用工具用于那些块但通用性较低。
+
+To do this, We encapsulate everything that is specific to the turtle language into one file (turtle.js) that we can easily swap with another file. Nothing else should be specific to the turtle language; the rest should just be about handling the blocks (blocks.js and menu.js) or be generally useful web utilities (util.js, drag.js, file.js). That is the goal, although to maintain the small size of the project, some of those utilities are less general-purpose and more specific to their use with the blocks.
