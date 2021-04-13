@@ -55,7 +55,10 @@ module.exports = {
         }],
       copyright: customFields.footer.copyright,
     },
-    hideableSidebar: true
+    hideableSidebar: true,
+    prism: {
+      additionalLanguages: [],
+    },
   },
 
   presets: [

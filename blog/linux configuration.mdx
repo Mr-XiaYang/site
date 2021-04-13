@@ -1,0 +1,118 @@
+---
+title: Linux服务器配置不完全指南
+author: 夏阳
+author_title: 一名兴趣使然的程序员
+author_url: https://github.com/standout-jjc
+author_image_url: https://avatars.githubusercontent.com/standout-jjc
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import TOCInline from '@theme/TOCInline';
+
+<TOCInline toc={toc} />
+
+### 系统配置
+
+#### 更新系统及系统内核
+
+<Tabs
+  groupId="linux-operating-systems"
+  defaultValue="Redhat"
+  values={[
+    { label: "Rehat系列", value: "Redhat" },
+    { label: "Debian系列", value: "Debian" },
+    { label: "Arch系列", value: "Arch" },
+  ]}
+>
+<TabItem value="Redhat">
+
+:::tip
+生产环境建议使用`yum update`。因为`yum upgrade`会删除旧版本的软件包，防止因为软件包升级导致依赖出现问题。
+:::
+
+```shell title="remote terminal"
+sudo yum upgrade -y 
+# 或者使用
+sudo yum update -y 
+```
+
+</TabItem>
+<TabItem value="Debian">
+
+:::tip
+生产环境建议使用`apt upgrade`。因为`apt dist-upgrade`会根据软件包的依赖关系自动安装或删除软件包，可能会删除管理员希望保留的软件包。
+:::
+
+```shell title="remote terminal"
+sudo apt update && sudo apt dist-upgrade
+# 或者使用
+sudo apt update && sudo apt upgrade
+```
+
+</TabItem>
+<TabItem value="Arch">
+
+:::caution
+生产环境不建议使用Arch系Linux，因为激进的软件内核更新方式是有可能导致服务器重启后无法登录启动。
+:::
+
+```shell title="remote terminal"
+sudo pacman -Syu
+```
+
+</TabItem>
+</Tabs>
+
+#### 添加普通用户
+
+```shell title="remote terminal"
+# 创建账号
+sudo adduser <username>
+#强制用户登陆时修改密码
+sudo passwd -f <username>
+#为用户添加切换用户的管理权限
+echo "<username> ALL=(root) /usr/bin/su" > /etc/sudoers.d/<username>
+```
+
+#### 设置SSH密钥登录
+
+:::caution
+请首先在本地电脑准备好SSH密钥，生成方法参见 [SSH密钥生成](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+:::
+
+<Tabs
+  defaultValue="Command"
+  values={[
+    { label: "使用命令", value: "Command" },
+    { label: "手动设置", value: "Manual" }
+  ]}
+>
+<TabItem value="Command">
+
+```shell title="local terminal"
+ssh-copy-id -i ~/.ssh/id_rsa.pub [username@]<host>
+# 因Windows系统不支持`ssh-copy-id`命令，可用以下powershell脚本替代`ssh-copy-id`命令。
+type $env:USERPROFILE\.ssh\id_rsa.pub | ssh [username@]<host> "mkdir .ssh && touch .ssh/authorized_keys && chmod -R go-rwx .ssh && cat >> .ssh/authorized_keys"
+```
+
+</TabItem>
+<TabItem value="Manual">
+
+```shell title="remote terminal"
+sudo mkdir -p <userhome>/.ssh
+sudo touch <userhome>/.ssh/authorized_keys
+sudo echo <ssh-pubkey> > <userhome>/.ssh/authorized_keys
+sudo chown -R <username>:<usergroup> <userhome>/.ssh
+sudo chmod -R go-rwx <userhome>/.ssh
+```
+
+</TabItem>
+</Tabs>
+
+测试ssh密钥登录是否成功
+```powershell title="local terminal"
+ssh [-i <keypath>] [-p <port>] [username@]<host>
+```
+
+### 常用软件安装
