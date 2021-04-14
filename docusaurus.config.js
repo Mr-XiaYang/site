@@ -56,6 +56,9 @@ module.exports = {
       copyright: customFields.footer.copyright,
     },
     hideableSidebar: true,
+    googleAnalytics: {
+      trackingID: 'G-ST49M7KECQ'
+    },
     prism: {
       additionalLanguages: [],
     },

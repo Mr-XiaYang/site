@@ -12,9 +12,7 @@ import TOCInline from '@theme/TOCInline';
 
 <TOCInline toc={toc} />
 
-### 系统配置
-
-#### 更新系统及系统内核
+### 更新系统及系统内核
 
 <Tabs
   groupId="linux-operating-systems"
@@ -64,7 +62,7 @@ sudo pacman -Syu
 </TabItem>
 </Tabs>
 
-#### 添加普通用户
+### 添加普通用户
 
 ```shell title="remote terminal"
 # 创建账号
@@ -75,7 +73,7 @@ sudo passwd -f <username>
 echo "<username> ALL=(root) /usr/bin/su" > /etc/sudoers.d/<username>
 ```
 
-#### 设置SSH密钥登录
+### 设置SSH密钥登录
 
 :::caution
 请首先在本地电脑准备好SSH密钥，生成方法参见 [SSH密钥生成](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
@@ -104,7 +102,7 @@ sudo mkdir -p <userhome>/.ssh
 sudo touch <userhome>/.ssh/authorized_keys
 sudo echo <ssh-pubkey> > <userhome>/.ssh/authorized_keys
 sudo chown -R <username>:<usergroup> <userhome>/.ssh
-sudo chmod -R go-rwx <userhome>/.ssh
+sudo chmod -R go-rwx <userhome>/.ssh 
 ```
 
 </TabItem>
@@ -115,4 +113,48 @@ sudo chmod -R go-rwx <userhome>/.ssh
 ssh [-i <keypath>] [-p <port>] [username@]<host>
 ```
 
-### 常用软件安装
+### 服务器安全设置
+
+### 配置SSH服务
+
+修改配置文件前做一次备份是个良好的习惯
+
+```shell
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
+sudo vim /etc/ssh/sshd_config
+```
+
+修改内容如下
+
+```vim title="vim /etc/ssh/sshd_config"
+#修改默认SSH服务端口
+Port 2222 
+#修改网络协议 
+Protocol 2
+#禁用Root用户登录
+PermitRootLogin no
+#禁止密码登录验证
+PasswordAuthentication no
+#禁止空密码登录
+PermitEmptyPasswords no
+#关闭X11转发
+X11Forwarding no
+# 关闭Rhosts验证
+IgnoreRhosts yes
+```
+
+确认sshd配置文件无误后，重启sshd服务
+
+:::caution 注意关闭防火墙
+一般调整云服务器的网络安全设置，放开相关端口的出入站权限即可。若本机安装有防火墙，请参见 [iptables](https://linux.die.net/man/8/iptables) 和 [firewall-cmd](https://firewalld.org/documentation/man-pages/firewall-cmd.html)。
+:::
+
+```shell
+#测试配置文件
+sshd -t
+#重启sshd服务
+sudo systemctl reload sshd.service 
+#查看端口是否启用成功
+netstat -ano | grep <sshd_port>
+```
+
