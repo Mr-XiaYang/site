@@ -94,8 +94,12 @@ module.exports = {
       sidebarPath: require.resolve(path.resolve('./docs', '500LinesOrLessSidebars.js')),
       editUrl: 'https://github.com/standout-jjc/xiayang-site/edit/main'
     }],
-    [path.resolve(__dirname, 'plugins/docusaurus-plugin-google-adsense'), {
-
-    }]
+    [path.resolve(__dirname, 'plugins/docusaurus-plugin-google-adsense'), {}],
+    ['@docusaurus/plugin-sitemap', {
+        changefreq: 'daily',
+        priority: 0.5,
+        trailingSlash: false,
+      },
+    ],
   ]
 };
