@@ -56,9 +56,8 @@ module.exports = {
       copyright: customFields.footer.copyright,
     },
     hideableSidebar: true,
-    gtag: {
-      trackingID: 'G-ST49M7KECQ'
-    },
+    gtag: {trackingID: 'G-ST49M7KECQ'},
+    adsense: {code:'ca-pub-2539504330450310'},
     prism: {
       additionalLanguages: [],
     },
@@ -94,6 +93,9 @@ module.exports = {
       routeBasePath: '500_Lines_or_Less',
       sidebarPath: require.resolve(path.resolve('./docs', '500LinesOrLessSidebars.js')),
       editUrl: 'https://github.com/standout-jjc/xiayang-site/edit/main'
+    }],
+    [path.resolve(__dirname, 'plugins/docusaurus-plugin-google-adsense'), {
+
     }]
   ]
 };
