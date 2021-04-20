@@ -91,7 +91,7 @@ module.exports = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "docs_default",
+        id: "docsDefault",
         path: path.resolve("./docs", "default"),
         routeBasePath: "docs",
         sidebarPath: require.resolve(
@@ -103,7 +103,7 @@ module.exports = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "docs_500LinesOrLess",
+        id: "docsFiveHundredLinesOrLess",
         path: path.resolve("./docs", "500LinesOrLess"),
         routeBasePath: "500_Lines_or_Less",
         sidebarPath: require.resolve(
