@@ -61,3 +61,8 @@ I want to accomplish a couple of things with this code. First and foremost, I wa
 要做到这一点，我们需要将turtle语言相关的内容封装到一个文件（`turtle.js`），这样可以使我们很容易的替换成另一个文件。除此之外的代码都不该是turtle语言特有的，其他的应当是用于处理块的代码(`blocks.js`, `menu.js`)或者是通用的Web工具（`util.js`, `drag.js`, `file.js`）。这就是我们的目标，虽然为了维持项目的精简，其中一些工具因为通用性较低而直接作用于那些块。
 
 To do this, We encapsulate everything that is specific to the turtle language into one file (`turtle.js`) that we can easily swap with another file. Nothing else should be specific to the turtle language; the rest should just be about handling the blocks (`blocks.js` and `menu.js`) or be generally useful web utilities (`util.js`, `drag.js`, `file.js`). That is the goal, although to maintain the small size of the project, some of those utilities are less general-purpose and more specific to their use with the blocks.
+
+在编写block语言的时，让我惊讶的是：你不能使用自己喜欢的文本编辑器编程，因为这种语言本身就是自己的IDE，语言与IDE是并行设计与开发的。这样有利有弊。从好的一面来说，每个人都使用相同的环境从而避免发生关于IDE优劣的争论。从另一方面来说，构建block语言时会牵扯你极大的精力。
+
+One thing that struck me when writing a block language was that the language is its own IDE. You can't just code up blocks in your favorite text editor; the IDE has to be designed and developed in parallel with the block language. This has some pros and cons. On the plus side, everyone will use a consistent environment and there is no room for religious wars about what editor to use. On the downside, it can be a huge distraction from building the block language itself.
+
