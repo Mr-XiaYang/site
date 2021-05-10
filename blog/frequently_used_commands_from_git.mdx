@@ -1,0 +1,30 @@
+---
+title: Git的常用命令
+author: 夏阳
+author_title: 一名兴趣使然的程序员
+author_url: https://github.com/standout-jjc
+author_image_url: https://avatars.githubusercontent.com/standout-jjc
+---
+
+### 分支重命名
+
+```shell
+git branch -m [<oldBranch>] <newBranch>
+# 强制重命名
+git branch -M [<oldBranch>] <newBranch> 
+```
+
+### 修改最后一次提交
+
+:::tip
+使用这条命令的时候需要小心，因为修正会改变提交的版本号。它类似一个小的变基。如果已经推送了最后一次提交，请谨慎使用它。
+:::
+
+```shell
+git commit --amend
+# 只是修改提交信息
+git commit --amend -m "<message>"
+# 只是添加遗漏提交的文件
+git add <file_path>
+git commit --amend --no-edit
+```
