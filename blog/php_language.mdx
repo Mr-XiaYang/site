@@ -1,0 +1,126 @@
+---
+title: PHP编程语言学习
+author: 夏阳
+author_title: 一名兴趣使然的程序员
+author_url: https://github.com/standout-jjc
+author_image_url: https://avatars.githubusercontent.com/standout-jjc
+---
+
+### 基本语法
+
+#### PHP标记
+
+当解析一个文件时，PHP会寻找开始和结束标记，使PHP解析标记之间的代码。这样的解析方式使PHP代码可以嵌入到各种不同的文档中。
+
+```php
+hello <?php echo "world"; ?>
+
+hello <?= 'world'; ?>
+
+# 下面样式的标记可以被禁用， 所以不推荐使用该标记
+hello <? echo 'world'; ?>
+
+# 如果文件文件内容仅包含PHP代码，最好在文件末尾删除PHP结束标记
+<?PHP 
+  echo 'hello world';
+  echo 'hello world';
+```
+
+文档原始内容当位于条件语句中间，PHP解释器会根据条件判断来决定哪些输出。要输出大段文本时，跳出PHP解析模式通常比通过`echo`或`print`更有效率。
+
+```php
+<?php if ($expression == true): ?>
+hello
+<?php else: ?>
+world
+<?php endif; ?>
+```
+
+#### 分隔符
+
+php需要在 每个语句后用分号结束指令。一段PHP代码中的结束标记隐含表示了一个分号，在PHP代码块的最后一段可以不用分号结束。
+
+```php
+<?php echo "Some text" ?>
+
+<?php 
+  echo "Some text";
+?>
+
+<?php 
+  echo 'We omitted the last closing tag';
+```
+
+#### 注释
+
+PHP 支持C、C++和Unix Shell风格（Perl风格）的注释。另外，单行注释仅仅注释到行末异或当前代码块结束标记。
+
+```php
+<?php
+  /* this is a multi line comment
+   * yet another line of commnet
+   */
+  echo 'this is a text'; // This is a one-line c++ style comment
+  echo 'this is a tect'; // This is a one-line shell-style comment
+?>
+
+  This is an <?php # echo 'simple';?> example
+```
+
+### 数据类型
+
+#### Boolean 布尔类型
+
+Boolean表达了真值，可以为`True`或`False`, 不区分大小写。另外当转换为boolean时，以下值会被认为是`false`，所有的其他值都被认为是true。
+
+ - 布尔值`false`本身
+ - 整数值`0`及`-0`
+ - 浮点数值`0.0`及`-0.0`
+ - 空字符串`""`及字符串`"0"`
+ - 空数组`[]`
+ - `NULL`类型
+ - 空标记生成的`SimpleXML`
+
+```php
+<?php
+var_dump((bool) true); //bool(true)
+var_dump((bool) false); //bool(false)
+var_dump((bool) 0); //bool(false)
+var_dump((bool) -1); //bool(true)
+var_dump((bool) array()); //bool(false)
+var_dump((bool) "null"); //bool(true)
+var_dump((bool) "0"); //bool(false)
+```
+
+#### Integer 整数类型
+
+整型值Int可以使用二进制、八进制、十进制、十六进制。并且可以使用负运算符来表示一个负的Int。要使用二进制，数字前需要加上0b；使用八进制，数字前要加上0；使用十六进制，数字前要加上0x；为了更好的阅读体验，从PHP7.4版本开始，整形数值可以包含下划线，这些下划线在展示的时候，会被PHP过滤掉。
+
+PHP中不支持无符号整数类型，并且它的字长与平台有关，整数类型的字长可以用常量`PHP_INT_SIZE`来表示，最大值可以使用常量`PHP_INT_MAX`表示，最小值可以使用常量`PHP_INT_MIN`表示。
+
+如果给定的一个数或执行运算的结果超出int范围，会返回float类型。
+
+```php
+<?php 
+  echo 0B01; // 二进制
+  echo 1234; // 十进制
+  echo 0123; // 八进制
+  echo 0X1A; // 十六进制
+  
+  echo 1_23; // 带下划线的十进制
+
+  var_dump(2147483647)   // int(2147483647)
+  var_dump(2147483648)   // float(2147483648)
+  var_dump(2147483647+1) // float(2147483647)
+
+  var_dump((int) true);       //int(1)
+  var_dump((int) false);      //int(0)
+  var_dump((int) 6.5);        //int(6)
+  var_dump((int) NaN);        //int(0)
+  var_dump((int) Infinity);   //int(0)
+  var_dump((int) null);       //int(0)
+  var_dump((int) "10");       //int(10)
+  var_dump((int) "text");     //int(0)
+?>
+```
+
