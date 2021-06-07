@@ -29,7 +29,7 @@ import TOCInline from '@theme/TOCInline';
 生产环境建议使用`yum update`。因为`yum upgrade`会删除旧版本的软件包，防止因为软件包升级导致依赖出现问题。
 :::
 
-```shell title="remote terminal"
+```shell title="远程终端"
 sudo yum upgrade -y 
 # 或者使用
 sudo yum update -y 
@@ -42,7 +42,7 @@ sudo yum update -y
 生产环境建议使用`apt upgrade`。因为`apt dist-upgrade`会根据软件包的依赖关系自动安装或删除软件包，可能会删除管理员希望保留的软件包。
 :::
 
-```shell title="remote terminal"
+```shell title="远程终端"
 sudo apt update && sudo apt dist-upgrade
 # 或者使用
 sudo apt update && sudo apt upgrade
@@ -55,7 +55,7 @@ sudo apt update && sudo apt upgrade
 生产环境不建议使用Arch系Linux，因为激进的软件内核更新方式是有可能导致服务器重启后无法登录启动。
 :::
 
-```shell title="remote terminal"
+```shell title="远程终端"
 sudo pacman -Syu
 ```
 
@@ -88,7 +88,7 @@ echo "<username> ALL=(root) /usr/bin/su" > /etc/sudoers.d/<username>
 >
 <TabItem value="Command">
 
-```shell title="local terminal"
+```shell title="本地终端"
 ssh-copy-id -i ~/.ssh/id_rsa.pub [username@]<host>
 # 因Windows系统不支持`ssh-copy-id`命令，可用以下powershell脚本替代`ssh-copy-id`命令。
 type $env:USERPROFILE\.ssh\id_rsa.pub | ssh [username@]<host> "mkdir .ssh && touch .ssh/authorized_keys && chmod -R go-rwx .ssh && cat >> .ssh/authorized_keys"
@@ -97,7 +97,7 @@ type $env:USERPROFILE\.ssh\id_rsa.pub | ssh [username@]<host> "mkdir .ssh && tou
 </TabItem>
 <TabItem value="Manual">
 
-```shell title="remote terminal"
+```shell title="远程终端"
 sudo mkdir -p <userhome>/.ssh
 sudo touch <userhome>/.ssh/authorized_keys
 sudo echo <ssh-pubkey> > <userhome>/.ssh/authorized_keys
@@ -109,7 +109,7 @@ sudo chmod -R go-rwx <userhome>/.ssh
 </Tabs>
 
 测试ssh密钥登录是否成功
-```powershell title="local terminal"
+```powershell title="本地终端"
 ssh [-i <keypath>] [-p <port>] [username@]<host>
 ```
 
@@ -161,3 +161,5 @@ netstat -ano | grep <sshd_port>
 ### 常用软件安装
 
 - [Nginx安装配置教程](./nginx_configuration.mdx)
+  
+----------
