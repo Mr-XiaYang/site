@@ -26,9 +26,27 @@ import TOCInline from '@theme/TOCInline';
 >
 <TabItem value="Redhat">
 
+添加nginx存储库
+
+```shell
+> sudo vim /etc/yum.repos.d/nginx.repo
+```
+
+```vim title="vim /etc/yum.repos.d/nginx.repo"
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+```
+
+安装启动nginx
 ```shell
 sudo yum install nginx
+sudo systemctl start nginx.service 
+sudo systemctl enable nginx.service #设置开机启动
 ```
+
 </TabItem>
 <TabItem value="Debian">
 
