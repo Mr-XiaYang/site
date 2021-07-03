@@ -26,4 +26,4 @@ const Root: React.FunctionComponent = () => {
   );
 }
 
-ReactDOM.render((<Root/>), document.getElementById('app'));
+ReactDOM.render(<Root/>, document.getElementById('app'));
