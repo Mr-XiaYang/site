@@ -4,6 +4,7 @@
     "noImplicitAny": false,
     "noImplicitThis": true,
     "experimentalDecorators": true,
+    "useDefineForClassFields": true,
     "resolveJsonModule": true,
     "allowJs": true,
     "sourceMap": true,
@@ -11,13 +12,14 @@
     "jsxFactory": "React.createElement",
     "strict": true,
     "esModuleInterop": true,
+    "target": "ES5",
     "lib": [
       "DOM",
       "ESNext"
     ],
     "typeRoots": [
       "node_modules/@types",
-      "src/types"
+      "src/type"
     ]
   },
   "exclude": [

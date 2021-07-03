@@ -1,20 +1,32 @@
-
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import {MuiThemeProvider} from '@material-ui/core/styles';
+import {History} from "history";
+
+import {observer} from "mobx-react";
 import React from 'react';
+import {Route, Router, Switch} from "react-router";
 
-const theme = createMuiTheme();
 
-export class App extends React.PureComponent {
+import ThemeStore from "./store/themeStore";
+
+type StoreProps = {
+  themeStore: ThemeStore
+}
+
+type Props = {
+  history: History
+} & StoreProps;
+
+@observer
+export class App extends React.PureComponent<Props> {
   render() {
     return (
-      <React.Fragment>
-        <CssBaseline />
-        <MuiThemeProvider theme={theme} >
-          <Button type="button" variant="contained" >Hello World</Button>
-        </MuiThemeProvider>
-      </React.Fragment>
+      <Router history={this.props.history}>
+        <Switch>
+          <Route path='/' exact>
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 }
