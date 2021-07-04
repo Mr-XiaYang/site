@@ -27,7 +27,7 @@ class HomePage extends React.PureComponent<Props> {
                     </Box>
                 )}</Observer>
                 <Box>
-                    文章类型图
+                    文章关系图
                 </Box>
                 <Box>
                     各种链接
