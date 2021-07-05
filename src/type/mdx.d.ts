@@ -1,45 +1,59 @@
 declare module '@mdx-js/react' {
-    import * as React from 'react'
-    type ComponentType =
-        | 'a'
-        | 'blockquote'
-        | 'code'
-        | 'delete'
-        | 'em'
-        | 'h1'
-        | 'h2'
-        | 'h3'
-        | 'h4'
-        | 'h5'
-        | 'h6'
-        | 'hr'
-        | 'img'
-        | 'inlineCode'
-        | 'li'
-        | 'ol'
-        | 'p'
-        | 'pre'
-        | 'strong'
-        | 'sup'
-        | 'table'
-        | 'td'
-        | 'thematicBreak'
-        | 'tr'
-        | 'ul'
-    export type Components = {
-        [key in ComponentType]?: React.ComponentType<{children: React.ReactNode}>
-    }
-    export interface MDXProviderProps {
-        children: React.ReactNode
-        components: Components
-    }
-    export class MDXProvider extends React.Component<MDXProviderProps> {}
+  import * as React from 'react'
+  type ComponentType =
+    | 'a'
+    | 'blockquote'
+    | 'code'
+    | 'delete'
+    | 'em'
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'hr'
+    | 'img'
+    | 'inlineCode'
+    | 'li'
+    | 'ol'
+    | 'p'
+    | 'pre'
+    | 'strong'
+    | 'sup'
+    | 'table'
+    | 'td'
+    | 'thematicBreak'
+    | 'tr'
+    | 'ul'
+  export type Components = {
+    [key in ComponentType]?: React.ComponentType<{ children: React.ReactNode }>
+  }
+
+  export interface MDXProviderProps {
+    children: React.ReactNode
+    components: Components
+  }
+
+  export class MDXProvider extends React.Component<MDXProviderProps> {
+  }
 }
 
 declare module '*.mdx' {
-    import React from "react";
-    let MDXComponent: React.ComponentType<any>
+  import React from "react";
 
-    export const metaData: JSON
-    export default MDXComponent
+  type TOC = {
+    content:string, slug: string, lvl: number, i:number
+  }[]
+
+  type Metadata = {
+    title: string,
+    [K: string]: any
+  }
+
+  const MDXComponent: React.ComponentType<any>
+
+  export const toc: TOC;
+  export const metadata: Metadata;
+  export default MDXComponent;
 }
