@@ -7,7 +7,7 @@ import propsWrapper from "../hoc/propsWrapper";
 type Props = {} & InjectProps & DefaultProps;
 
 type InjectProps = {
-    appStore: AppStore
+  appStore: AppStore
 }
 
 type DefaultProps = {}
@@ -15,13 +15,13 @@ type DefaultProps = {}
 @inject('appStore') @observer
 class Background extends React.PureComponent<Props> {
 
-    render() {
-        return (
-            <Box bgcolor={'#E2e2e2'}>
-                {this.props.children}
-            </Box>
-        );
-    }
+  render() {
+    return (
+      <Box bgcolor={'#E2e2e2'} height="100%" width="100%">
+        {this.props.children}
+      </Box>
+    );
+  }
 }
 
 export default propsWrapper<Props, InjectProps, DefaultProps>(Background);

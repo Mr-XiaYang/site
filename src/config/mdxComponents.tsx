@@ -8,8 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import StarRateIcon from "@material-ui/icons/StarRate"
 import _ from "lodash";
 import React from "react";
-import TreeItem from "@material-ui/lab/TreeItem";
-import TreeView from '@material-ui/lab/TreeView';
 
 
 const mdxComponents = {
@@ -79,7 +77,7 @@ const mdxComponents = {
   ),
   blockquote: (props) => (
     <Box ml={0.75} pl={1} borderLeft={2} borderColor="primary.main">{props.children}</Box>
-  ),
+  )
 }
 
 export default mdxComponents;

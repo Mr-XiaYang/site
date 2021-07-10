@@ -20,7 +20,12 @@
     "typeRoots": [
       "node_modules/@types",
       "src/type"
-    ]
+    ],
+    "paths": {
+      "~/*": [
+        "./*"
+      ]
+    }
   },
   "exclude": [
     "node_modules",

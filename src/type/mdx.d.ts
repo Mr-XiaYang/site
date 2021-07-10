@@ -41,19 +41,18 @@ declare module '@mdx-js/react' {
 
 declare module '*.mdx' {
   import React from "react";
+  import {TOCItem} from "parcel-transformer-mdx";
 
-  type TOC = {
-    content:string, slug: string, lvl: number, i:number
-  }[]
+  export const toc: TOCItem[];
+  export const contentTitle: string;
+  export const frontMatter: object;
+  const MDXComponent: React.ComponentType<any> & { isMDXComponent: true };
 
-  type Metadata = {
-    title: string,
-    [K: string]: any
-  }
-
-  const MDXComponent: React.ComponentType<any>
-
-  export const toc: TOC;
-  export const metadata: Metadata;
   export default MDXComponent;
+}
+
+declare module '\*.mdx' {
+  export const components: {
+    [K: string]: {}
+  }
 }

@@ -1,7 +1,7 @@
 {
-  "extends": "@parcel/config-default",  
+  "extends": "@parcel/config-default",
+  "resolvers": ["parcel-resolver-glob-mdx", "..."],
   "transformers": {
-    "*.{jpg,png,svg}": ["@parcel/transformer-raw"],
     "*.mdx": ["parcel-transformer-mdx"]
   }
 }

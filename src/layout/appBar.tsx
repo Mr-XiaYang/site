@@ -12,7 +12,7 @@ import Search from "./search";
 class AppBar extends React.PureComponent {
     render() {
         return (
-            <MuiAppBar position="sticky" elevation={0}>
+            <MuiAppBar position="fixed" elevation={0}>
                 <Toolbar>
                     <Logo/>
                     <Box flex={1}/>
