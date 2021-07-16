@@ -39,6 +39,7 @@ declare module '@mdx-js/react' {
   }
 }
 
+
 declare module '*.mdx' {
   import React from "react";
   import {TOCItem} from "parcel-transformer-mdx";
@@ -49,10 +50,4 @@ declare module '*.mdx' {
   const MDXComponent: React.ComponentType<any> & { isMDXComponent: true };
 
   export default MDXComponent;
-}
-
-declare module '\*.mdx' {
-  export const components: {
-    [K: string]: {}
-  }
 }
