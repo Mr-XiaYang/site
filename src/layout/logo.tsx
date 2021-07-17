@@ -1,15 +1,17 @@
 import Box from "@material-ui/core/Box";
-import React from "react";
 import Typography from "@material-ui/core/Typography";
+import React from "react";
 
-class Logo extends React.PureComponent {
+export type LogoProps = {};
+
+export const Logo = (
+  class _Logo extends React.PureComponent<LogoProps> {
     render() {
-        return (
-            <Box>
-                <Typography variant="h5">夏阳</Typography>
-            </Box>
-        );
+      return (
+        <Box>
+          <Typography variant="h5">夏阳</Typography>
+        </Box>
+      );
     }
-}
-
-export default Logo
+  }
+) as unknown as React.ComponentType<LogoProps>;

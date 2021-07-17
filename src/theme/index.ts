@@ -1,5 +1,5 @@
 import {Theme} from "@material-ui/core/styles";
-import material from "./material";
+import {light as materialLight, dark as materialDark} from "./material";
 
 export enum ThemeMode {
   System = "System",
@@ -11,19 +11,13 @@ export enum ThemeName {
   Material = 'Material',
 }
 
-const themes: {
+export const Themes: {
   [N in ThemeName]: {
     [M in ThemeMode.Light | ThemeMode.Dark]: Theme
   }
 } = {
   Material: {
-    Light: material.light,
-    Dark: material.dark
+    Light: materialLight,
+    Dark: materialDark
   }
 }
-
-export default themes;
-
-
-
-

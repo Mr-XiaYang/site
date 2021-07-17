@@ -1,27 +1,30 @@
 import Box from "@material-ui/core/Box";
-import React from "react";
 import {inject, observer} from "mobx-react";
-import AppStore from "../store/appStore";
-import propsWrapper from "../hoc/propsWrapper";
+import React from "react";
+import AppStore from "../store/app_store";
 
-type Props = {} & InjectProps & DefaultProps;
+type InlineProps = {
+  children: React.ReactNode
+} & InjectProps & DefaultProps;
 
 type InjectProps = {
   appStore: AppStore
-}
+};
 
-type DefaultProps = {}
+type DefaultProps = {};
 
-@inject('appStore') @observer
-class Background extends React.PureComponent<Props> {
+export type BackgroundProps = PropsWrapper<InlineProps, InjectProps, DefaultProps>;
 
-  render() {
-    return (
-      <Box bgcolor={'#E2e2e2'} height="100%" width="100%">
-        {this.props.children}
-      </Box>
-    );
+export const Background = inject('appStore')(observer(
+  class _Background extends React.PureComponent<InlineProps> {
+    render() {
+      return (
+        <Box bgcolor={'#E2e2e2'} height="100%" width="100%">
+          {this.props.children}
+        </Box>
+      );
+    }
   }
-}
+)) as unknown as React.ComponentType<BackgroundProps>;
 
-export default propsWrapper<Props, InjectProps, DefaultProps>(Background);
+

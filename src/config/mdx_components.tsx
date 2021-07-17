@@ -1,8 +1,8 @@
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText"
 import Typography from "@material-ui/core/Typography";
 import StarRateIcon from "@material-ui/icons/StarRate"
@@ -10,7 +10,7 @@ import _ from "lodash";
 import React from "react";
 
 
-const mdxComponents = {
+export const MDXComponents = {
   hr: () => (<Box my={2}><Divider/></Box>),
   thematicBreak: () => (<Divider component={Box} py={0.5}/>),
   h1: (props) => (<Typography variant='h1'>{props.children}</Typography>),
@@ -19,7 +19,7 @@ const mdxComponents = {
   h4: (props) => (<Typography variant='h4'>{props.children}</Typography>),
   h5: (props) => (<Typography variant='h5'>{props.children}</Typography>),
   h6: (props) => (<Typography variant='h6'>{props.children}</Typography>),
-  p: (props) => typeof props.children === 'string' ? props.children.split(/\r?\n/).map((p, index) => (
+  p: (props) => typeof props.children === 'string' ? props.children.split(/\r?\n/).map((p) => (
     <Typography key={_.uniqueId('p_')} variant='body1'>{p}</Typography>
   )) : (
     <Typography variant='body1'>{props.children}</Typography>
@@ -69,7 +69,7 @@ const mdxComponents = {
       } secondary={
         React.createElement(Box, {
           pl: 2, children: props.children.slice(1)
-            .map((child) => typeof child === 'string' ? (mdxComponents.p({children: child})) : child)
+            .map((child) => typeof child === 'string' ? (MDXComponents.p({children: child})) : child)
         })
       }
       />
@@ -79,5 +79,3 @@ const mdxComponents = {
     <Box ml={0.75} pl={1} borderLeft={2} borderColor="primary.main">{props.children}</Box>
   )
 }
-
-export default mdxComponents;

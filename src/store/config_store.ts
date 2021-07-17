@@ -1,22 +1,16 @@
-import {action, makeObservable, observable} from "mobx";
+import {action, observable} from "mobx";
 
 import {ThemeMode, ThemeName} from "../theme";
-import type BaseStore from "./baseStore";
-import type RootStore from "./index";
+import {BaseStore} from "./base_store";
 
-
-export default class ConfigStore implements BaseStore {
-  @observable.ref
-  readonly rootStore: RootStore;
+export class ConfigStore extends BaseStore {
 
   @observable
   themeMode: ThemeMode = ThemeMode.System;
   @observable
   themeName: ThemeName = ThemeName.Material;
 
-  constructor(rootStore: RootStore) {
-    makeObservable(this);
-    this.rootStore = rootStore
+  protected initialize() {
   }
 
   @action

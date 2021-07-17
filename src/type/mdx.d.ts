@@ -39,7 +39,6 @@ declare module '@mdx-js/react' {
   }
 }
 
-
 declare module '*.mdx' {
   import React from "react";
   import {TOCItem} from "parcel-transformer-mdx";

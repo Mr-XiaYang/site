@@ -1,38 +1,36 @@
 import {History} from "history";
 import React from "react";
 import {Route, Router, Switch} from "react-router";
-import propsWrapper from "../hoc/propsWrapper";
-import HomePage from "./homePage";
-import documents from "../../blog/software_architect/**/*.mdx";
+import {HomePage} from "./home_page";
 
-type Props = {
-    history: History
+type InlineProps = {
+  history: History
 } & InjectProps
 
 type InjectProps = {}
 
-class AppRouter extends React.PureComponent<Props> {
+export type AppRouterProps = PropsWrapper<InlineProps, InjectProps>
 
-    constructor(props: Props) {
-        super(props);
+export const AppRouter = (
+  class _AppRouter extends React.PureComponent<InlineProps> {
+    constructor(props: InlineProps) {
+      super(props);
     }
 
     componentDidMount() {
-        console.log(documents);
     }
 
     render() {
-        return (
-            <Router history={this.props.history}>
-                <Switch>
-                    <Route path='/' exact component={HomePage}/>
-                    <Route path='/test'>
-
-                    </Route>
-                </Switch>
-            </Router>
-        );
+      return (
+        <Router history={this.props.history}>
+          <Switch>
+            <Route path='/' exact component={HomePage}/>
+            <Route path='/test'/>
+          </Switch>
+        </Router>
+      );
     }
-}
+  }
+) as unknown as React.ComponentType<AppRouterProps>;
 
-export default propsWrapper<Props, InjectProps>(AppRouter);
+export default AppRouter;

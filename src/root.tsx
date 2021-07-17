@@ -9,10 +9,8 @@ import {MDXProvider} from '@mdx-js/react';
 
 
 import AppRouter from "./page";
-import RootStore from "./store";
-import AppStore from "./store/appStore";
-import ThemeStore from "./store/themeStore";
-import mdxComponents from "./config/mdxComponents";
+import {RootStore, AppStore, ThemeStore} from "./store";
+import {MDXComponents} from "./config/mdx_components";
 
 const rootStore = new RootStore();
 const history = createHashHistory();
@@ -25,7 +23,7 @@ const Root: React.FunctionComponent = () => {
       <CssBaseline/>
       <AppStore.Listener appStore={rootStore.appStore}/>
       <MuiThemeProvider themeStore={rootStore.themeStore}>
-        <MDXProvider components={mdxComponents}>
+        <MDXProvider components={MDXComponents}>
           <AppRouter history={history}/>
         </MDXProvider>
       </MuiThemeProvider>
