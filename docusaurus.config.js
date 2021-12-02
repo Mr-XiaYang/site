@@ -5,7 +5,7 @@ const customFields = {
     title: "夏阳",
   },
   footer: {
-    copyright: `Copyright © ${new Date().getFullYear()} 夏阳的个人站｜鲁ICP备20012782号`,
+    copyright: `Copyright © ${new Date().getFullYear()} 夏阳的个人站｜<a href='https://beian.miit.gov.cn/'>鲁ICP备20012782号</a>`,
   },
 };
 
