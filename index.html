@@ -7,12 +7,14 @@
     <meta name="description" content="Description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 </head>
 <body>
 <div id="app">
     Please wait...
 </div>
+<div id="gitalk-container"></div>
+
 <!-- Pre Plugins -->
 <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
 <script>
@@ -66,9 +68,11 @@
 <!-- Plugins -->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
     const gitalk = new Gitalk({
         clientID: '6b9f963c4df6ad2f9401',
@@ -81,6 +85,7 @@
         // facebook-like distraction free mode
         distractionFreeMode: false,
     });
+    gitalk.render('gitalk-container')
 </script>
 </body>
 </html>
