@@ -1,6 +1,8 @@
 # 操作系统
 ## Linux
 ## UnRaid
+### [自动化追剧新体验](./unraid/)
+
 ## Windows
 # 软件
 ## Nginx
@@ -9,6 +11,9 @@
 ```markdown
 test
 ```
+# 装修
+
+[decoration](./decoration/README.md ":include")
 
 # Blog
 ## Markdown
