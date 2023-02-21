@@ -1,10 +1,9 @@
----
-title: "BlockCode: 可视化编程工具"
----
 
+# 《500 lines or less》
+
+## 第一章 BlockCode: 可视化编程工具
 
 ### [Dethe Elza](https://twitter.com/dethe)
-
 
 [Dethe](https://twitter.com/dethe) 是一名极客父亲，具有审美趣味的程序员，导师以及[ WaterBear 可视化编程工具](http://waterbearlang.com/) 的作者。他与人合办温哥华制作教育沙龙，想要兔子折纸机器人火遍全世界。
 
@@ -26,7 +25,7 @@ Learning a programming language can be difficult because they are extremely sens
 In contrast, a well-done block language can eliminate syntax errors completely. You can still create a program which does the wrong thing, but you cannot create one with the wrong syntax: the blocks just won't fit that way. Block languages are more discoverable: you can see all the constructs and libraries of the language right in the list of blocks. Further, blocks can be localized into any human language without changing the meaning of the programming language.
 
 
-![Figure 1.1 - The BlockCode IDE in use](./01_blockCode/figure_1-1.png)
+![Figure 1.1 - The BlockCode IDE in use](_media/figure_1-1.png)
 <center>Figure 1.1 - The BlockCode IDE in use</center>
 
 
