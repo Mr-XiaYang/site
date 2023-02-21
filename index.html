@@ -62,24 +62,27 @@
 
         vueGlobalOptions: {
             data() {
-                return {
-                    gitalk: new Gitalk({
-                        clientID: '6b9f963c4df6ad2f9401',
-                        clientSecret: '14cc90ebbcc7d0337d6ca361e1a88534c96789bd',
-                        repo: 'site',
-                        owner: 'Mr-XiaYang',
-                        admin: ['Mr-XiaYang'],
-                        // facebook-like distraction free mode
-                        distractionFreeMode: false,
-                    })
-                }
+
             }
         },
         vueComponents: {
             "gitalk": {
                 template: `
-                    <div id="gitalk-container"/>
+                  <div id="gitalk-container"/>
                 `,
+                data() {
+                    return {
+                        gitalk: new Gitalk({
+                            clientID: '6b9f963c4df6ad2f9401',
+                            clientSecret: '14cc90ebbcc7d0337d6ca361e1a88534c96789bd',
+                            repo: 'site',
+                            owner: 'Mr-XiaYang',
+                            admin: ['Mr-XiaYang'],
+                            // facebook-like distraction free mode
+                            distractionFreeMode: false,
+                        })
+                    }
+                },
                 mounted() {
                     gitalk.render("gitalk-container")
                 },
