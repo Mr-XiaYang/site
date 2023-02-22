@@ -35,6 +35,35 @@
 [filename](filename.md ":include")
 ```
 
+### 数学公式
+
+$ E=mc^2 $
+
+$$
+E=mc^2
+$$
+
+```markdown
+$ E=mc^2 $
+
+$$
+E=mc^2
+$$
+```
+
+### 流程图
+
+```noml render
+[Foo] -> [Bar]
+```
+
+```markdown
+    ```noml render
+    [Foo] -> [Bar]
+    ```
+```
+
+
 ### 提示
 
 > [!NOTE]
