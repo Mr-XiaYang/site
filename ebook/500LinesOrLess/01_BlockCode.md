@@ -1,6 +1,4 @@
-## 第一章 BlockCode: 可视化编程工具
-
-### [Dethe Elza](https://twitter.com/dethe)
+## Dethe Elza
 
 [Dethe](https://twitter.com/dethe)
 是一名极客父亲，具有审美趣味的程序员，导师以及[ WaterBear 可视化编程工具](http://waterbearlang.com/)
@@ -70,7 +68,7 @@ domain to be able to capture in a tightly constrained project such as this.
 If you would like to get a feel for what a block-based-language is like, you can experiment with the program that is
 built in this chapter from author's [Github repository](https://dethe.github.io/500lines/blockcode/).
 
-### 目标和结构
+## 目标和结构
 
 Goals and Structure
 
