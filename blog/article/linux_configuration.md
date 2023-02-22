@@ -160,7 +160,7 @@ netstat -ano | grep <sshd_port>
 
 ### 常用软件安装
 
-- [Nginx安装配置教程](./nginx_configuration.mdx)
-- [PHP安装配置教程](./php_configuration.mdx)
+- [Nginx安装配置教程](nginx_configuration.md)
+- [PHP安装配置教程](php_configuration.mdx)
 
 * * *

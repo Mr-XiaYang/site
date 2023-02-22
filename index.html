@@ -30,7 +30,8 @@
         relativePath: true,
         cornerExternalLinkTarget: "_blank",
         formatUpdated: '{YY}/{MM}/{DD} {HH}:{mm}',
-        routerMode: "hash",
+        // routerMode: "hash",
+        routerMode: "history",
         requestHeaders: {
             'cache-control': 'max-age=600',
         },
@@ -73,18 +74,16 @@
                 data() {
                     return {
                         gitalk: new Gitalk({
+                            id: location.pathname,
                             clientID: '6b9f963c4df6ad2f9401',
                             clientSecret: '14cc90ebbcc7d0337d6ca361e1a88534c96789bd',
-                            repo: 'site',
-                            owner: 'Mr-XiaYang',
-                            admin: ['Mr-XiaYang'],
-                            // facebook-like distraction free mode
+                            repo: 'site', owner: 'Mr-XiaYang', admin: ['Mr-XiaYang'],
                             distractionFreeMode: false,
                         })
                     }
                 },
                 mounted() {
-                    gitalk.render("gitalk-container")
+                    this.gitalk.render("gitalk-container")
                 },
             }
         }
@@ -100,18 +99,5 @@
 <script src="//cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    window.gitalk = new Gitalk({
-        clientID: '6b9f963c4df6ad2f9401',
-        clientSecret: '14cc90ebbcc7d0337d6ca361e1a88534c96789bd',
-        repo: 'https://github.com/Mr-XiaYang/site.git',
-        owner: 'Mr-XiaYang',
-        admin: [
-            'Github repo collaborators, only these guys can initialize github issues',
-        ],
-        // facebook-like distraction free mode
-        distractionFreeMode: false,
-    });
-</script>
 </body>
 </html>
