@@ -1,7 +1,7 @@
 import Box from "@material-ui/core/Box";
 import {inject, observer} from "mobx-react";
 import React from "react";
-import AppStore from "../store/app_store";
+import {AppStore} from "../store";
 
 type InlineProps = {
   children: React.ReactNode
